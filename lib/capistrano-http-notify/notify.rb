@@ -2,10 +2,9 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-
 require File.dirname(__FILE__) + '/../capistrano-http-notify' if !defined?(CapistranoHttpNotify)
 
-CapistranoHelpers.with_configuration do
+CapistranoHttpNotify.with_configuration do
   namespace :deploy do
     def perform_json_post(uri, body)
       req = new_json_post uri, body
