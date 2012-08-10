@@ -23,14 +23,12 @@ CapistranoHelpers.with_configuration do
     end
 
     task :deploy_notification_via_http do
-      params = {
+      perform_json_post http_notify_options[:url], {
         application: application,
         user: `git config --get github.user`,
         stage: stage,
         branch: branch
       }
-
-      perform_json_post http_notify_options[:url],
     end
   end
 
