@@ -24,7 +24,7 @@ CapistranoHttpNotify.with_configuration do
     task :deploy_notification_via_http do
       perform_json_post URI(http_notify_options[:url]), {
         application: application,
-        user: `git config --get github.user`,
+        user: `git config --get github.user`.strip,
         stage: stage,
         branch: branch
       }
