@@ -1,5 +1,4 @@
 require 'capistrano-http-notify/version'
-require 'capistrano-http-notify/notify'
 
 module CapistranoHttpNotify
   # Execute the given block of code within the context of the capistrano configuration.
@@ -7,3 +6,5 @@ module CapistranoHttpNotify
     Capistrano::Configuration.instance(:must_exist).load(&block)
   end
 end
+
+require 'capistrano-http-notify/notify'
