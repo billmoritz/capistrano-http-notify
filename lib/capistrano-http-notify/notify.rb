@@ -22,7 +22,7 @@ CapistranoHttpNotify.with_configuration do
     end
 
     task :deploy_notification_via_http do
-      perform_json_post URI(http_notify_options[:url]), {
+      perform_json_post URI.parse(http_notify_options[:url]), {
         application: application,
         user: `git config --get github.user`.strip,
         stage: stage,
