@@ -8,7 +8,7 @@ CapistranoHttpNotify.with_configuration do
   namespace :deploy do
     def perform_json_post(uri, body)
       req = new_json_post uri, body
-      Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == 'https') do |http|
+      Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
         res = http.request req
         yield req, res if block_given?
         res
